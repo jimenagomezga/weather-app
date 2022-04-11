@@ -1,0 +1,79 @@
+.headerContainer {
+  width: 100%;
+  height: 726px;
+  background: linear-gradient(103.27deg, #fdf2ec 31.15%, #b6e8f3 84.18%);
+  display: flex;
+}
+
+nav img {
+  position: absolute;
+  width: 188px;
+  height: 94px;
+  left: 89px;
+  top: 5px;
+}
+
+nav .menu {
+  position: absolute;
+  display: flex;
+  width: 652px;
+  height: 20px;
+  left: 740px;
+  top: 42px;
+  justify-content: space-evenly;
+}
+
+nav h4 {
+  margin-right: 60px;
+  cursor: pointer;
+}
+
+nav h4:hover {
+  color: #780ae6;
+}
+
+nav .titleContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 110px;
+}
+
+.titleContainer h1 {
+  position: absolute;
+  width: 646px;
+  top: 186px;
+  font-size: 65px;
+  line-height: 66px;
+  text-align: left;
+}
+
+.titleContainer p {
+  position: absolute;
+  width: 600px;
+  top: 433px;
+  text-align: left;
+  font-size: 17px;
+  line-height: 123.65%;
+}
+
+.titleContainer button {
+  position: absolute;
+  width: 208px;
+  height: 43px;
+  top: 591px;
+  border: none;
+  background: #780ae6;
+  border-radius: 7px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.imageHeader img {
+  position: absolute;
+  width: 599px;
+  height: 598px;
+  left: 816px;
+  top: 114px;
+}
