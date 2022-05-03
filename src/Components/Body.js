@@ -55,61 +55,12 @@ function Body() {
                 icon={datacity.weather[0].icon}
                 temp={datacity.main.temp}
                 description={datacity.weather[0].description}
+                hora={datacity.dt}
                 timezone={datacity.timezone}
               />
             );
           })
         )}
-
-        {/* <div className="card">
-          <div className="transparency"></div>
-          <img src={Riodejaneiro} alt="Riodejaneiro" />
-          <div className="textCard">
-            <h2>Rio de janeiro </h2>
-            <img src={weatherIcon} alt="weatherIcon" />
-            <h1>27°</h1>
-          </div>
-        </div> */}
-
-        {/* <div className="card">
-          <div className="transparency"></div>
-          <img src={Buenosaires} alt="Buenosaires" />
-          <div className="textCard">
-            <h2>Buenos Aires</h2>
-            <img src={weatherIcon} alt="weatherIcon" />
-            <h1>18°</h1>
-          </div>
-        </div> */}
-
-        {/* <div className="card">
-          <div className="transparency"></div>
-          <img src={Kyoto} alt="Kyoto" />
-          <div className="textCard">
-            <h2>Kyoto</h2>
-            <img src={weatherIcon} alt="weatherIcon" />
-            <h1>20°</h1>
-          </div>
-        </div> */}
-
-        {/* <div className="card">
-          <div className="transparency"></div>
-          <img src={Estambul} alt="Estambul" />
-          <div className="textCard">
-            <h2>Estambul </h2>
-            <img src={weatherIcon} alt="weatherIcon" />
-            <h1>15°</h1>
-          </div>
-        </div> */}
-
-        {/* <div className="card">
-          <div className="transparency"></div>
-          <img src={Praga} alt="Praga" />
-          <div className="textCard">
-            <h2>Praga </h2>
-            <img src={weatherIcon} alt="weatherIcon" />
-            <h1>21°</h1>
-          </div>
-        </div> */}
       </div>
 
       <div className="subscriptionContainer">

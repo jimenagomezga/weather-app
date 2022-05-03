@@ -2,6 +2,8 @@ import React from "react";
 import "../Styles/CardsCitys.css";
 // import { imgData } from "../Means/data";
 //import Card from "../Components/Card";
+import moment from "moment";
+import "moment/locale/es";
 import image1 from "../Assets/Rio-de-janeiro.jpg";
 // import image2 from "../Assets/Buenos-aires.jpeg";
 // import image3 from "../Assets/Kyoto.jpg";
@@ -20,33 +22,37 @@ export default function CardsCitys({
   name,
   icon,
   temp,
-  image,
   description,
+  hora,
   timezone,
 }) {
+  const dateTime = moment.unix(hora).utc().add(timezone, "s");
+
   return (
     <div className="card ">
       <div className="transparency"></div>
       {imgData.map((imgCity, index) => {
-        return <img key={index} src={imgCity.image} alt="ojala de" />;
+        return <img key={index} src={imgCity.image} alt="ImagenCiudad" />;
       })}
-      {/* <img src={image} alt="imgsz" /> */}
       <div className="textCard animate__animated animate__fadeIn">
-        <div>
+        <h4>{dateTime.format("LL")}</h4>
+        <h4>{dateTime.format("h:mm:ss a")}</h4>
+
+        <div className="containterNameDescription">
           <h2>{name}</h2>
-          <h4>
-            {description}
-            {timezone}
-          </h4>
+          <h4>{description}</h4>
         </div>
-        <img
-          src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
-          alt="weatherIcon"
-        />
-        <h1>
-          {Math.round(temp)}
-          <sup>&deg;C</sup>
-        </h1>
+        {/* Container clima */}
+        <div className="containerWeather">
+          <img
+            src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
+            alt="weatherIcon"
+          />
+          <h1>
+            {Math.round(temp)}
+            <sup>&deg;C</sup>
+          </h1>
+        </div>
       </div>
     </div>
   );
