@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import "../Styles/Body.css";
 import Loader from "../Components/Loader.js";
 import CardsCitys from "../Components/CardsCitys";
+import { apiKey } from "../Utils/constKey";
 
 function Body() {
   const [dataCityID, setDataCityID] = useState([]);
 
-  const apiKey = "7e1ab248c358468814c67e6a2edd3cb4";
   const cities = [3451190, 3435910, 1857910, 745042, 3067696];
 
   async function getCityWeather(cityID) {
@@ -50,6 +50,7 @@ function Body() {
             return (
               <CardsCitys
                 key={datacity.id}
+                id={datacity.id}
                 country={datacity.sys.country}
                 name={datacity.name}
                 icon={datacity.weather[0].icon}
@@ -57,6 +58,8 @@ function Body() {
                 description={datacity.weather[0].description}
                 hora={datacity.dt}
                 timezone={datacity.timezone}
+                lat={datacity.coord.lat}
+                lon={datacity.coord.lon}
               />
             );
           })

@@ -1,0 +1,119 @@
+.infoDetails {
+  padding-top: 60px;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.infoDetails h5 {
+  text-align: left;
+  font-weight: 400;
+}
+
+.infoDetails h3 {
+  text-align: left;
+  margin-right: 60px;
+}
+
+.containerWeatherCurrent {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.containerWeatherCurrent img {
+  margin-right: 60px;
+}
+
+.containerWeatherCurrent h1 {
+  margin-right: 60px;
+}
+
+.containerCardForHours {
+  width: 900px;
+  padding-top: 25px;
+}
+
+.cardForHours {
+  width: 900px;
+  height: 320px;
+  margin-top: 20px;
+  background-color: #e4dbed;
+  display: flex;
+  overflow: scroll;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 13px;
+}
+
+.containerCardFortyEightHours {
+  width: 900px;
+  height: 400px;
+  margin-top: 40px;
+  padding-top: 25px;
+}
+
+.cardFortyEightHours {
+  width: 900px;
+  height: 900px;
+  margin-top: 20px;
+  background-color: rgb(203, 203, 203);
+}
+
+.containerCardForDays {
+  width: 900px;
+  height: 400px;
+  margin-top: 630px;
+  padding-top: 25px;
+}
+
+.cardForDays {
+  width: 900px;
+  height: 700px;
+  margin-top: 20px;
+  background-color: rgb(203, 203, 203);
+}
+
+.containerLastWeek {
+  width: 900px;
+  height: 400px;
+  margin-top: 410px;
+  padding-top: 25px;
+}
+
+.cardLastWeek {
+  width: 900px;
+  height: 700px;
+  margin-top: 20px;
+  background-color: rgb(203, 203, 203);
+}
+
+.dataHourly {
+  list-style: none;
+  /* margin-right: 10px; */
+  width: 50px;
+  border-right: 1px dashed #780ae6;
+  display: flex;
+  flex-direction: column;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.dataHourly :hover {
+  background-color: #ba90e3;
+}
+
+.time {
+  color: #780ae6;
+  font-size: 10px;
+  margin-top: 16px;
+}
+
+.dataHourly img {
+  width: 50px;
+}
+
+.containerTempH {
+  font-size: 15px;
+  margin-top: 20px;
+  /* font-weight: bold; */
+}

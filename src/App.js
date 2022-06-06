@@ -1,14 +1,17 @@
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import Header from "../src/Components/Header";
-import Body from "../src/Components/Body";
-import Footer from "./Components/Footer";
+
+import Home from "../src/Components/Templates/Home";
+
+import InfoDetailsCity from "./Components/Templates/InfoDetailsCity";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Body />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/weathercity" element={<InfoDetailsCity />} />
+      </Routes>
     </div>
   );
 }

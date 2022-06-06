@@ -1,24 +1,20 @@
 import React from "react";
 import "../Styles/CardsCitys.css";
-// import { imgData } from "../Means/data";
-//import Card from "../Components/Card";
 import moment from "moment";
 import "moment/locale/es";
-import image1 from "../Assets/Rio-de-janeiro.jpg";
-// import image2 from "../Assets/Buenos-aires.jpeg";
-// import image3 from "../Assets/Kyoto.jpg";
-// import image4 from "../Assets/Estambul.jpg";
-// import image5 from "../Assets/Praga-republica-checa.jpg";
+//import image1 from "../Assets/Rio-de-janeiro.jpg";
+import { Link } from "react-router-dom";
 
-const imgData = [
-  { id: 3451190, image: image1 },
-  // { id: 3435910, image: image2 },
-  // { id: 1857910, image: image3 },
-  // { id: 745042, image: image4 },
-  // { id: 3067696, image: image5 },
-];
+// const imgData = [
+//   { id: 3451190, image: image1 },
+//   // { id: 3435910, image: image2 },
+//   // { id: 1857910, image: image3 },
+//   // { id: 745042, image: image4 },
+//   // { id: 3067696, image: image5 },
+// ];
 
 export default function CardsCitys({
+  id,
   name,
   icon,
   temp,
@@ -28,18 +24,21 @@ export default function CardsCitys({
 }) {
   const dateTime = moment.unix(hora).utc().add(timezone, "s");
 
+  const imageCity = require.context("../Assets/Cities", true);
+
   return (
     <div className="card ">
       <div className="transparency"></div>
-      {imgData.map((imgCity, index) => {
-        return <img key={index} src={imgCity.image} alt="ImagenCiudad" />;
-      })}
+      <img src={imageCity(`./${id}.jpg`)} alt={name} />
       <div className="textCard animate__animated animate__fadeIn">
         <h4>{dateTime.format("LL")}</h4>
         <h4>{dateTime.format("h:mm:ss a")}</h4>
 
         <div className="containterNameDescription">
-          <h2>{name}</h2>
+          <Link to="/weathercity">
+            <h2>{name}</h2>
+          </Link>
+
           <h4>{description}</h4>
         </div>
         {/* Container clima */}
@@ -48,10 +47,7 @@ export default function CardsCitys({
             src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
             alt="weatherIcon"
           />
-          <h1>
-            {Math.round(temp)}
-            <sup>&deg;C</sup>
-          </h1>
+          <h1 className="tempCard">{Math.round(temp)}&deg;</h1>
         </div>
       </div>
     </div>
