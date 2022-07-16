@@ -1,7 +1,7 @@
 import React from "react";
 import "../../src/Styles/CardsInfoDetailsCity.css";
 
-export default function CardsInfoDetailsCity({ forhourly }) {
+export default function CardsInfoDetailsCity({ forHourly, forDaily }) {
   return (
     <div className="infoDetails">
       <div>
@@ -18,17 +18,17 @@ export default function CardsInfoDetailsCity({ forhourly }) {
 
       <div className="containerCardForHours">
         <h3>Pronóstico detallado hora por hora</h3>
-        <div className="cardForHours">{forhourly}</div>
+        <div className="cardForHours">{forHourly}</div>
       </div>
 
       <div className="containerCardFortyEightHours">
         <h3>Pronóstico detallado por hora — Próximas 48 horas</h3>
-        <div className="cardFortyEightHours"></div>
+        <div className="cardFortyEightHours">xx</div>
       </div>
 
       <div className="containerCardForDays">
         <h3>Pronóstico detallado por días</h3>
-        <div className="cardForDays"></div>
+        <div className="cardForDays">{forDaily}</div>
       </div>
 
       <div className="containerLastWeek">

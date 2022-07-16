@@ -34,7 +34,7 @@
 }
 
 .cardForHours {
-  width: 900px;
+  width: 909px;
   height: 320px;
   margin-top: 20px;
   background-color: #e4dbed;
@@ -67,10 +67,15 @@
 }
 
 .cardForDays {
-  width: 900px;
-  height: 700px;
+  width: 909px;
+  height: 560px;
   margin-top: 20px;
-  background-color: rgb(203, 203, 203);
+  background-color: #e4dbed;
+  display: flex;
+  overflow: scroll;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 13px;
 }
 
 .containerLastWeek {
@@ -104,8 +109,10 @@
 
 .time {
   color: #780ae6;
-  font-size: 10px;
-  margin-top: 16px;
+  font-size: 13px;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
 }
 
 .dataHourly img {
@@ -114,6 +121,21 @@
 
 .containerTempH {
   font-size: 15px;
-  margin-top: 20px;
-  /* font-weight: bold; */
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.containerTempH h6 {
+  color: #780ae6;
+  text-align: center;
+  font-size: 10px;
+}
+
+.dataDaily {
+  list-style: none;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  border-right: 1px dashed #780ae6;
+  padding-right: 5.5px;
+  padding-left: 5.5px;
 }

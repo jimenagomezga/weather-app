@@ -1,8 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-
 import Home from "../src/Components/Templates/Home";
-
 import InfoDetailsCity from "./Components/Templates/InfoDetailsCity";
 
 function App() {

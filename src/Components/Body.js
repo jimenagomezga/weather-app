@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../Styles/Body.css";
-import Loader from "../Components/Loader.js";
-import CardsCitys from "../Components/CardsCitys";
+import Loader from "./Loader";
+import CardsCitys from "./CardsCitys";
 import { apiKey } from "../Utils/constKey";
 
-function Body() {
+export default function Body() {
   const [dataCityID, setDataCityID] = useState([]);
 
   const cities = [3451190, 3435910, 1857910, 745042, 3067696];
@@ -27,7 +27,7 @@ function Body() {
         cities.map((id) => getCityWeather(id))
       );
       setDataCityID(citiesData);
-      console.log(citiesData);
+      //console.log(citiesData);
     } catch (error) {
       console.error(`There was an error: ${error}`);
     }
@@ -76,5 +76,3 @@ function Body() {
     </div>
   );
 }
-
-export default Body;

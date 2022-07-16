@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
 import CardsInfoDetailsCity from "../CardsInfoDetailsCity";
 import Loader from "../Loader";
-import moment from "moment";
-import "moment/locale/es";
 import { apiKey } from "../../Utils/constKey";
 
 export default function InfoDetailsCity() {
-  const [dataCityDetail, setDataCityDetail] = useState([]);
+  const [dataCity, setDataCity] = useState([]);
   const [loading, setLoading] = useState(true);
-  //const [hourlyWeather, setHourlyWeather] = useState([]);
 
   const lat = -22.9028;
   const lon = -43.2075;
@@ -16,10 +13,10 @@ export default function InfoDetailsCity() {
   const handleInformationCityDetail = async () => {
     try {
       let res = await fetch(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,ourly,daily&appid=${apiKey}&units=metric&lang=sp`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,alerts&appid=${apiKey}&units=metric&lang=sp`
       );
       const data = await res.json();
-      setDataCityDetail(data);
+      setDataCity(data);
       setLoading(false);
       console.log(data);
     } catch (error) {
@@ -61,11 +58,14 @@ export default function InfoDetailsCity() {
   //   }
   // };
 
-  const forhourly = dataCityDetail.hourly?.map((dataHourly, index) => {
+  const forHourly = dataCity.hourly?.map((dataHourly, index) => {
+    let da = new Date(dataHourly.dt * 1000);
+    let hor = da.getHours();
+
     return (
       <div className="dataHourly">
         <li key={index}>
-          <div className="time">{dataHourly.dt}</div>
+          <div className="time">{hor}:00</div>
           <div className="containerTempH">
             {parseInt(dataHourly.temp)}&deg;
             <br />
@@ -75,13 +75,52 @@ export default function InfoDetailsCity() {
               src={`http://openweathermap.org/img/wn/${dataHourly.weather[0].icon}@2x.png`}
               alt="weatherIcon"
             />
+            <h6>{dataHourly.weather[0].main}</h6>
+            <br />
             {parseInt(dataHourly.wind_gust)}
             <br />
-            Km/h
+            <h6>Km/h</h6>
             <br />
-            <br />
-            Nubes
+            <h6>Nubes</h6>
             {dataHourly.clouds}%
+          </div>
+        </li>
+      </div>
+    );
+  });
+
+  const forDaily = dataCity.daily?.map((dataDaily, index) => {
+    return (
+      <div className="dataDaily">
+        <li key={index}>
+          <div className="time">{dataDaily.dt}</div>
+          <div className="containerTempH">
+            {parseInt(dataDaily.temp.day)}&deg;
+            <br />
+            temp min {parseInt(dataDaily.temp.min)}&deg;
+            <br />
+            temp max {parseInt(dataDaily.temp.max)}&deg;
+            <br />
+            temp night {parseInt(dataDaily.temp.night)}&deg;
+            <br />
+            temp eve {parseInt(dataDaily.temp.eve)}&deg;
+            <br />
+            temp morn {parseInt(dataDaily.temp.morn)}&deg;
+            <br />
+            humedad {dataDaily.humidity}%;
+            <img
+              src={`http://openweathermap.org/img/wn/${dataDaily.weather[0].icon}@2x.png`}
+              alt="weatherIcon"
+            />
+            <br />
+            {parseInt(dataDaily.wind_gust)}
+            <br />
+            <h6>Km/h</h6>
+            <br />
+            <h6>Nubes</h6>
+            {dataDaily.clouds}
+            <br />
+            {dataDaily.weather[0].main}
           </div>
         </li>
       </div>
@@ -90,15 +129,11 @@ export default function InfoDetailsCity() {
 
   return (
     <div>
-      {loading ? <Loader /> : <CardsInfoDetailsCity forhourly={forhourly} />}
+      {loading ? (
+        <Loader />
+      ) : (
+        <CardsInfoDetailsCity forHourly={forHourly} forDaily={forDaily} />
+      )}
     </div>
   );
 }
-
-// {!dataCityDetail ? (
-//   <Loader />
-// ) : (
-//   dataCityDetail.hourly?.map((dataCities) => {
-//     return <CardsInfoDetailsCity />;
-//   })
-// )}
